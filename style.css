@@ -1,0 +1,130 @@
+{
+	margin: 0; /* iki eleman arasindaki bosluk */
+	padding: 0; /* ic kenar boslugu */   
+	box-sizing: border-box; /* border ve padding değerleri de width değeri içerisinde kabul edilir. (margin değeri dahil edilmez.) */
+}
+
+body
+{
+	display: flex; /*esnek yapıları kolayca yönetmek için. Çünkü yapıya esneklik verdiği için, yatay ve dikey hizalarda nasıl görüneceğini, öğelerin kendi içinde hizalanmalarını ve sırasını belirlemek gibi güzel özellikleri bulunuyor */
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh; /* vh ise ekran yüksekliğinin 100/1'lik bir bölümüne denk geliyor. */
+
+	background: #091921;
+	/* Flex özelliğine sahip olan bir kapsayıcının yatay eksende nasıl hizalanacağını ayarlar. Objeler başta mı, ortada mı, sonda mı, aralıklı mı dizileceğine karar vermemizi sağlar. Bu kararı vermek için 5 parametre kullanır:
+
+flex-start: Nesneler kapsayıcının başından başlayarak dizilirler.
+space-around: Nesneler arasında eşit boşluklar bırakılır.
+space-between: İlk nesne başta, son nesne sonda olacak şekilde nesneler eşit olarak kapsayıcının içerisinde dizilirler.
+center: Nesneler tam ortalı olacak şekilde hizalanır.
+flex-end: Son nesne en sağa yaslanacak şekilde hizalanır.
+align-items
+Bu özellik ise justify-content‘in yatay eksende yaptığı şeyleri dikey eksende yapmaya yarar. Yine aynı şekilde hizalama işlemini dikey eksende nasıl yapmamız gerektiğine karar vermemiz gerekmektedir. Bu özellik de yine 5 parametre kullanır ve bunlardan 3 tanesi justify-content özelliği ile aynıdır.
+
+flex-start: Nesneler, kapsayıcının en üstünden başlayarak dizilirler.
+flex-end: Nesneler, kapsayıcının en altından başlayarak, yukarı doğru dizilirler.
+center: Nesneler ortalı bir şekilde dikey olarak sıralanırlar.
+baseline: İlk satırdaki yazı tipi göz önüne alınarak hizalanmaya başlanılır.
+stretch: Tüm nesneler kapsayıcı yüksekliğine eşit olacak şekilde dizilirler. */
+
+}
+.clock{
+	width: 350px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("clock.png");
+	background-size: cover;
+	border: 4px solid #091921;
+	border-radius: 50%; /* yaricap */
+	box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+		        inset  0 -15px 15px rgba(255,255,255,0.05),
+		        0 -15px 15px rgba(0,0,0,0.3),
+                inset 0 -15px 15px rgba(0,0,0,0.3);	 /* golgeleme */
+	
+}
+.clock:before
+{
+  content: '';
+  position: absolute;
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border-radius: 50%;
+	z-index: 10000;
+	
+}
+
+	
+
+.clock .hour,
+.clock .min,
+.clock .sec
+
+{
+	position: absolute;	
+}
+.clock .hour, .hr
+{
+	width: 160px;
+	height: 160px;
+}
+.clock .min, .mn
+{
+	width: 190px;
+	height: 190px;
+}
+.clock .sec, .sc
+{
+	width: 230px;
+	height: 230px;
+	
+}
+
+.hr, .mn, .sc
+
+{
+	
+	display: flex;
+	justify-content:center;
+	/* align-content: center; */
+	position: absolute;
+	border-radius: 90%;
+	
+
+}
+.hr:before
+{
+	content: '';
+	position:absolute;
+	width: 8px;
+	height: 80px;
+	background: #ff105e;
+	z-index: 10;
+	border-radius: 6px 6px 0 0;
+	
+} 
+
+.mn:before
+{
+	content: '';
+	position:absolute;
+	width: 4px;
+	height: 90px;
+	background: #fff;
+	z-index: 11;
+	border-radius: 6px 6px 0 0;
+}
+.sc:before
+{
+	content: '';
+	position:absolute;
+	width: 2px;
+	height: 150px;
+	background: #fff;
+	z-index: 12;
+	border-radius: 6px 6px 0 0;
+	
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr-TR">
+<head>
+<meta  http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Clock UI Dark</title>
+	<link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+	<div class="clock">
+	 <div class="hour">
+		<div class="hr" id="hr"></div>
+	 </div>
+	 <div class="min">
+		<div class="mn" id="mn"></div>
+	 </div>
+	 <div class="sec">
+		<div class="sc" id="sc"></div>
+	 </div>
+	</div>
+	
+<script type="text/javascript" language="javascript">
+    const deg = 6;
+	const hr = document.querySelector("#hr"); //querySelector sadece eslesen elemani dondurur.
+	const mn = document.querySelector("#mn");
+	const sc = document.querySelector("#sc");
+	
+	setInterval(() => { // zamanlayici calistirdi. ve ok isareti bir fonksiyon setInvertal(function(){})
+	let day = new Date();
+	let hh = day.getHours() * 30; // 30 derecelik bir aci ile donuyor
+	let mm = day.getMinutes() * deg; //6 derece
+	let ss = day.getSeconds() * deg;
+
+	hr.style.transform = `rotateZ(${(hh) +(mm/12)}deg)`;
+	mn.style.transform = `rotateZ(${mm}deg)`;
+	sc.style.transform = `rotateZ(${ss}deg)`; //css de transfor ile calisan donme fonksiyonu rotateZ dir.
+	})
+	
+	
+
+	</script>
+</body>
+</html>
